@@ -2,6 +2,7 @@ const calculatorDisplay = document.querySelector('h1');
 const inputBtns = document.querySelectorAll('button');
 const clearBtn = document.getElementById('clear-btn');
 
+
 // calculate first and second values
 const calculate = {
   '/': (firstValue, secondValue) => firstValue / secondValue,
@@ -11,9 +12,11 @@ const calculate = {
   '=': (firstValue, secondValue) => secondValue,
 };
 
+
 let firstValue = 0;
 let operatorValue = '';
 let awaitValue = false;
+
 
 function numberValue(num) {
   if (awaitValue) {
@@ -25,6 +28,7 @@ function numberValue(num) {
   }
 };
 
+
 function addDecimal() {
   // if operator used, dont add "."
   if (awaitValue) return;
@@ -34,6 +38,7 @@ function addDecimal() {
     calculatorDisplay.textContent = `${calculatorDisplay.textContent}.`;
   }
 }
+
 
 // operator function
 function useOperator(operator) {
@@ -58,6 +63,7 @@ function useOperator(operator) {
   operatorValue = operator;
 }
 
+
 // clear display
 function clearAll() {
   firstValue = 0;
@@ -66,6 +72,7 @@ function clearAll() {
   calculatorDisplay.textContent = '0';
 }
 clearBtn.addEventListener('click', clearAll);
+
 
 // event listeners
 inputBtns.forEach((button) => {
